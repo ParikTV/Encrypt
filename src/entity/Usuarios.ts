@@ -40,7 +40,6 @@ export class Usuarios {
   @IsNotEmpty()
   estado: boolean; 
 
-
   hashPassword(): void {
     const salt = bcrypt.genSaltSync(10);
     this.password = bcrypt.hashSync(this.password, salt);
