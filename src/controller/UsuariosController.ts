@@ -1,10 +1,10 @@
 import { getRepository } from "typeorm";
 import { Request, Response } from "express";
-import { Usuarios } from "../entity/Usuarios";
 import { validate } from "class-validator";
+import { Usuarios } from "../entity/Usuarios";
 
 export class UsuariosController {
-  static getAll = async (req: Request, res: Response) => {
+ /* static getAll = async (req: Request, res: Response) => {
     const userRepository = getRepository(Usuarios);
     let users;
 
@@ -58,33 +58,20 @@ export class UsuariosController {
     } catch (e) {
       return res.status(404).json({ message: "Usuario no encontrado." });
     }
-  };
+  };*/
 
   static new = async (req: Request, res: Response) => {
     const {
       username,
       password,
       role,
-      nombre,
-      apellido1,
-      apellido2,
-      fechaNac,
-      telefono,
-      genero,
     } = req.body;
     const user = new Usuarios();
 
     user.username = username;
     user.password = password;
     user.role = role;
-    user.nombre = nombre;
-    user.apellido1 = apellido1;
-    user.apellido2 = apellido2;
-    user.fechaNac = fechaNac;
-    user.telefono = telefono;
-    user.genero = genero;
-    user.estado = "1";
-
+    user.estado = true;
     user.resetToken = "new";
     user.refreshToken = "new";
 
@@ -111,7 +98,7 @@ export class UsuariosController {
     res.status(201).send("Usuario Creado.");
   };
 
-  static edit = async (req: Request, res: Response) => {
+  /*static edit = async (req: Request, res: Response) => {
     let user;
     const { id } = req.params;
     const {
@@ -188,7 +175,8 @@ export class UsuariosController {
     }
 
     res.status(201).json({ message: "Usuario eliminado." });
-  };
+  };*/
+
 }
 
 export default UsuariosController;
