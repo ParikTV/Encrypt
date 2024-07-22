@@ -1,7 +1,7 @@
-import { getRepository } from "typeorm";
 import { Request, Response } from "express";
 import { validate } from "class-validator";
 import { Usuarios } from "../entity/Usuarios";
+import { AppDataSource } from "../data-source";
 
 export class UsuariosController {
  /* static getAll = async (req: Request, res: Response) => {
@@ -83,7 +83,7 @@ export class UsuariosController {
       return res.status(400).json(errors);
     }
 
-    const userRepository = getRepository(Usuarios);
+    const userRepository = AppDataSource.getRepository(Usuarios);
     try {
       //hash password
       user.hashPassword();

@@ -19,8 +19,9 @@
       "cors": "^2.8.5",
       "express": "^4.17.2",
       "helmet": "^7.1.0",
+      "install": "^0.13.0",
       "jsonwebtoken": "^9.0.2",
-      "mysql": "^2.14.1",
+      "mysql2": "^3.10.3",
       "reflect-metadata": "^0.1.13",
       "typeorm": "0.3.12"
    },
